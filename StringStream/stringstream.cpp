@@ -1,36 +1,54 @@
-#include <sstream>
+//#include <cmath>
+//#include <cstdio>
 #include <vector>
 #include <iostream>
+//#include <algorithm>
+#include<sstream>
+#include "string"
 using namespace std;
 
-vector<int> parseInts(string str) {
-	// Complete this 
+vector<int> trimstring(string s)
+{
     vector<int>v;
-    while(str.size()!=0)
+    //this is one way
+    /*while (s.size() != 0)
     {
+        int i = 0;
         string temp;
-        int i=0;
-        while(str[i]!='\0' && str[i]!=',')
+        while (s[i] != ','&&s[i]!=NULL)
         {
-            temp=temp+str[i];
+            temp = temp + s[i];
             i++;
         }
-        str.erase(0,i+1);
+        s.erase(0, i+1);
         stringstream ss(temp);
         int t;
-        ss>>t;
+        ss >> t;
         v.push_back(t);
+    }*/
+    
+	//another way optimize
+    stringstream ss(s);
+    int temp;
+    char c;
+    ss >> noskipws;//not skip white space when extracting data
+    while (ss>>temp)
+    {
+        v.push_back(temp);
+        ss >> c;
     }
     return v;
 }
 
 int main() {
-    string str;
-    cin >> str;
-    vector<int> integers = parseInts(str);
-    for(int i = 0; i < integers.size(); i++) {
-        cout << integers[i] << "\n";
+
+    vector<int>v;
+    string s;
+    getline(cin, s);
+    v=trimstring(s);
+    for (int i = 0; i < v.size(); i++)
+    {
+        cout << v[i]<<endl;
     }
-    
     return 0;
 }
