@@ -1,0 +1,5 @@
+string stream is in header <sstream>
+It is similar to other stream, can >>(extract) and <<(insert)
+Stringstream is "type" key word to create stringstream obj
+  stringstream ss(s) where ss is stringstream obj and content of string s will copy in stream
+If the structure of string is known, stringstream can be used to extract the demanded data(see the code)
